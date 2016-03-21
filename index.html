@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Angular 2 QuickStart</title>
+    <title>Photosphere Component</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
     <!-- 1. Load libraries -->
@@ -13,6 +13,7 @@
     <script src="node_modules/rxjs/bundles/Rx.js"></script>
     <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
     <script src="node_modules/three/three.min.js"></script>
+    <script src="app/CustomOrbitControls.js"></script>
     <!-- 2. Configure SystemJS -->
     <script>
       System.config({
@@ -25,12 +26,10 @@
       });
       System.import('app/main')
             .then(null, console.error.bind(console));
-      System.import('app/main/photosphere')
-            .then(null, console.error.bind(console));
     </script>
   </head>
   <!-- 3. Display the application -->
   <body>
-    <my-app>Loading...</my-app>
+    <app>Loading...</app>
   </body>
 </html>
