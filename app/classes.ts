@@ -6,7 +6,7 @@ export module Photosphere {
   */
   export interface Attributes {
     /** The source file */
-    src?: string;
+    src: string;
     /** Height of the photosphere */
     height?: number;
     /** Width of the photosphere */
