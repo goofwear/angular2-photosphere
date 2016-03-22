@@ -3,9 +3,7 @@ import {Photosphere} from './classes';
 
 @Component({
     selector: 'photosphere',
-    template: `<h1>Angular2 Photosphere</h1>
-      <div id="{{ id }}"></div>
-    `
+    template: `<div id="{{ id }}"></div>`
 })
 export class PhotosphereCanvas {
 
@@ -40,8 +38,10 @@ export class PhotosphereCanvas {
     let geometry = new THREE.SphereGeometry(100, params.resolution, params.resolution);
     THREE.ImageUtils.crossOrigin = 'use-credential';
 
+    let loader = new THREE.TextureLoader();
+
     let mesh: THREE.MeshBasicMaterial = new THREE.MeshBasicMaterial({
-        map: THREE.ImageUtils.loadTexture(vm.data.src)
+        map: loader.load(vm.data.src)
     });
 
     let sphere: THREE.Mesh = new THREE.Mesh(geometry, mesh);
@@ -54,8 +54,8 @@ export class PhotosphereCanvas {
         controls.enabled = false;
     }
 
-    controls.noPan = true;
-    controls.noZoom = true;
+    controls.enablePan = false;
+    controls.enableZoom = false;
     controls.autoRotate = true;
     controls.autoRotateSpeed = rotateSpeed;
 

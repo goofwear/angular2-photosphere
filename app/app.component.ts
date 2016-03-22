@@ -5,7 +5,7 @@ import {Photosphere} from './classes';
 @Component({
     selector: 'app',
     template: `
-      <h1>My First Angular 2 App</h1>
+      <h1>Angular2 Photosphere</h1>
       <photosphere [data]="data"></photosphere>
     `,
     directives: [PhotosphereCanvas]
@@ -16,8 +16,9 @@ export class AppComponent {
     let vm = this;
     vm.data = {
       src: "app/photosphere.jpg",
-      height: 800,
-      width: 600
+      height: 600,
+      width: 800,
+      speed: 2
     }
   }
 }

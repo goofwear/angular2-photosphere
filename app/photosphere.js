@@ -45,8 +45,9 @@ System.register(['angular2/core', './classes'], function(exports_1, context_1) {
                     renderer.setSize(params.width, params.height);
                     var geometry = new THREE.SphereGeometry(100, params.resolution, params.resolution);
                     THREE.ImageUtils.crossOrigin = 'use-credential';
+                    var loader = new THREE.TextureLoader();
                     var mesh = new THREE.MeshBasicMaterial({
-                        map: THREE.ImageUtils.loadTexture(vm.data.src)
+                        map: loader.load(vm.data.src)
                     });
                     var sphere = new THREE.Mesh(geometry, mesh);
                     sphere.scale.x = -1;
@@ -55,8 +56,8 @@ System.register(['angular2/core', './classes'], function(exports_1, context_1) {
                     if (params.controls === classes_1.Photosphere.Control.wheel || params.controls === classes_1.Photosphere.Control.none) {
                         controls.enabled = false;
                     }
-                    controls.noPan = true;
-                    controls.noZoom = true;
+                    controls.enablePan = false;
+                    controls.enableZoom = false;
                     controls.autoRotate = true;
                     controls.autoRotateSpeed = rotateSpeed;
                     webglEl.appendChild(renderer.domElement);
@@ -135,7 +136,7 @@ System.register(['angular2/core', './classes'], function(exports_1, context_1) {
                 PhotosphereCanvas = __decorate([
                     core_1.Component({
                         selector: 'photosphere',
-                        template: "<h1>Angular2 Photosphere</h1>\n      <div id=\"{{ id }}\"></div>\n    "
+                        template: "<div id=\"{{ id }}\"></div>"
                     }),
                     __param(0, core_1.Inject(core_1.ElementRef)), 
                     __metadata('design:paramtypes', [core_1.ElementRef])

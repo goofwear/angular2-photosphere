@@ -26,14 +26,15 @@ System.register(['angular2/core', './photosphere'], function(exports_1, context_
                     var vm = this;
                     vm.data = {
                         src: "app/photosphere.jpg",
-                        height: 800,
-                        width: 600
+                        height: 600,
+                        width: 800,
+                        speed: 2
                     };
                 }
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'app',
-                        template: "\n      <h1>My First Angular 2 App</h1>\n      <photosphere [data]=\"data\"></photosphere>\n    ",
+                        template: "\n      <h1>Angular2 Photosphere</h1>\n      <photosphere [data]=\"data\"></photosphere>\n    ",
                         directives: [photosphere_1.PhotosphereCanvas]
                     }), 
                     __metadata('design:paramtypes', [])
